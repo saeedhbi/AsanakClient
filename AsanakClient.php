@@ -33,10 +33,9 @@ class AsanakClient
      * @param string $wsdl            
      * @param array $login            
      */
-    public function __construct($wsdl, $login)
+    public function __construct($wsdl)
     {
-        $this->error();
-        $this->connection = $this->connect($wsdl, $login);        
+        $this->connection = $this->connect($datas);        
     }
 
     /**
@@ -47,220 +46,29 @@ class AsanakClient
      *
      * @return object
      */
-    public function connect($wsdl, $login)
+    public function connect($datas)
     {
-        return new SoapClient($wsdl, $login);
+        $client = new SoapClient($datas['wsdl']);
+        $this->userCredential($datas);
+        return $client;
     }    
-
+    
     /**
-     * enqueue method of "Magfa" service
+     * userCredential method of "Asanak" service
      *
-     * @param array $params            
      * @return void
      */
-    public function enqueue($params)
-    {
-        $params = array(
-            'domain' => $params['domain'],
-            'messageBodies' => array(
-                $params['messageBodies']
-            ),
-            'recipientNumbers' => $params['recipientNumbers'],
-            'senderNumbers' => array(
-                $params['senderNumbers']
-            )
-        );      
-        
-        $response = $this->call('enqueue', $params);        
-        
-        foreach ($response as $result) {
-            // compare the response with the ERROR_MAX_VALUE
-            if ($result <= $this->ERROR_MAX_VALUE) {
-                var_dump("Error Code : $result ; Error Title : " . $this->error[$result]['title'] . ' {' . $this->error[$result]['desc'] . '}' . $this->outputSeparator);
-            } else {
-                var_dump("Message has been successfully sent");
-            }
-        }
-    }
-
-    /**
-     * getCredit method of "Magfa" service
-     *
-     * @param array $params            
-     * @return void
-     */
-    public function getCredit($params)
-    {
-        
-        // creating the parameter array
-        $params = array(
-            'domain' => $params['domain']
-        );
-        
-        // sending the request via webservice
-        $response = $this->call('getCredit', $params);
-        
-        // display the result
-        echo 'Your Credit : ' . $response . $this->outputSeparator;
-    }
-
-    /**
-     * getAllMessages method of "Magfa" service
-     *
-     * @param array $params            
-     * @return void
-     */
-    public function getAllMessages($params)
-    {
-        
-        // creating the parameter array
-        $params = array(
-            'domain' => $params['domain'],
-            'numberOfMessasges' => $params['numberOfMessasges']
-        );
-        
-        // sending the request via webservice
-        $response = $this->call('getAllMessages', $params);
-        
-        // display the result
-        if (count($response) == 0) {
-            echo "No new message" . $this->outputSeparator;
-        } else {
-            // display the incoming message(s)
-            foreach ($response as $result) {
-                echo "Message:" . $this->outputSeparator;
-                var_dump($result);
-            }
-        }
-    }
-
-    /**
-     * getAllMessagesWithNumber method of "Magfa" service
-     *
-     * @param array $params            
-     * @return void
-     */
-    public function getAllMessagesWithNumber($params)
+    public function userCredential($login)
     {
         // creating the parameter array
         $params = array(
-            'domain' => $params['domain'],
-            'numberOfMessages' => $params['numberOfMessages'],
-            'destNumber' => $params['destNumber']
+            "username" => $login['username'],
+            "password" => $login['password']
         );
-        $response = $this->call('getAllMessagesWithNumber', $params);
-        
-        if (count($response) == 0) {
-            echo "No new message" . $this->outputSeparator;
-        } else {
-            // display the incoming message(s)
-            foreach ($response as $result) {
-                echo "Message:" . $this->outputSeparator;
-                var_dump($result);
-            }
-        }
+    
+        $this->connection->call('userCredential', $params);
     }
 
-    /**
-     * getMessageId method of "Magfa" service
-     *
-     * @param array $params            
-     * @return void
-     */
-    public function getMessageId($params)
-    {
-        // creating the parameter array
-        $params = array(
-            'domain' => $params['domain'],
-            'checkingMessageId' => $params['checkingMessageId']
-        );
-        $result = $this->call('getMessageId', $params);
-        
-        // compare the response with the ERROR_MAX_VALUE
-        if ($result <= $this->ERROR_MAX_VALUE) {
-            echo "An error occured" . $this->outputSeparator;
-            echo "Error Code : $result ; Error Title : " . $this->error[$result]['title'] . ' {' . $this->error[$result]['desc'] . '}' . $this->outputSeparator;
-        } else {
-            echo "MessageId : $result" . $this->outputSeparator;
-        }
-    }
-
-    /**
-     * getMessageStatus method of "Magfa" service
-     *
-     * @param array $params            
-     * @return void
-     */
-    public function getMessageStatus($params)
-    {
-        // creating the parameter array
-        $params = array(
-            'messageId' => $params['messageId']
-        );
-        $result = $this->call('getMessageStatus', $params);
-        
-        // compare the response with the ERROR_MAX_VALUE
-        if ($result == - 1) {
-            echo "An error occured" . $this->outputSeparator;
-            echo "Error Code : $result ; Error Title : " . $this->error[$result]['title'] . ' {' . $this->error[$result]['desc'] . '}' . $this->outputSeparator;
-        } else {
-            echo "Message Status : $result" . $this->outputSeparator;
-        }
-    }
-
-    /**
-     * getMessageStatuses method of "Magfa" service
-     *
-     * @param array $params            
-     * @return void
-     */
-    public function getMessageStatuses($params)
-    {
-        // creating the parameter array
-        $params = array(
-            'messageId' => $params['messageId']
-        );
-        
-        // sending the request via webservice
-        $response = $this->call('getMessageStatuses', $params);
-        
-        // checking the response
-        foreach ($response as $result) {
-            if ($result == - 1) {
-                echo "An error occured" . $this->outputSeparator;
-                echo "Error Code : $result ; Error Title : " . $this->error[$result]['title'] . ' {' . $this->error[$result]['desc'] . '}' . $this->outputSeparator;
-            } else {
-                echo "Message Status : $result" . $this->outputSeparator;
-            }
-        }
-    }
-
-    /**
-     * getRealMessageStatuses method of "Magfa" service
-     *
-     * @param array $params            
-     * @return void
-     */
-    public function getRealMessageStatuses($params)
-    {
-        // creating the parameter array
-        $params = array(
-            'messageId' => $params['messageId']
-        );
-        
-        // sending the request via webservice
-        $response = $this->call('getRealMessageStatuses', $params);
-        
-        // checking the response
-        foreach ($response as $result) {
-            if ($result == - 1) {
-                echo "An error occured" . $this->outputSeparator;
-                echo "Error Code : $result ; Error Title : " . $this->error[$result]['title'] . ' {' . $this->error[$result]['desc'] . '}' . $this->outputSeparator;
-            } else {
-                echo "Message Status : $result" . $this->outputSeparator;
-            }
-        }
-    }
 
     /**
      * This method calls method of the webservice client object
