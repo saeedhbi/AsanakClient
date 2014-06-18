@@ -3,5 +3,4 @@ namespace AsanakClient;
 
 class AsanakClient
 {
-        
 }
