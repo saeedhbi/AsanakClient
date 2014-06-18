@@ -1,6 +1,6 @@
 <?php
-namespace Opilo\SmsProvider;
+namespace Exceptions;
 
-class AsanakConnectorSOAPException extends \Exception
+class AsanakSOAPException extends \Exception
 {
 }
