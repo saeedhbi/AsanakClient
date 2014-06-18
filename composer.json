@@ -22,15 +22,15 @@
 		"psr-4" : {
 			"AsanakClient\\" : ""
 		},
-		"psr-0": {		    
-			"": "src"
+		"psr-0" : {
+			"" : "src"
 		}
 	},
-	"require-dev": {
-        "phpspec/phpspec": "2.0.*@dev"
-    },
-    "config": {
-        "bin-dir": "bin"
-    },
+	"require-dev" : {
+		"phpspec/phpspec" : "2.0.*@dev"
+	},
+	"config" : {
+		"bin-dir" : "bin"
+	},
 	"minimum-stability" : "beta"
 }
