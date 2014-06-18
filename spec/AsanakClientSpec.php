@@ -11,4 +11,13 @@ class AsanakClientSpec extends ObjectBehavior
     {
         $this->shouldHaveType('AsanakClient');
     }
+    
+    function let(){    
+        $values = array('connectiontype'=>'soap');    
+        $this->beConstructedWith($values);
+    }
+    
+    function it_should_connect_to_connection_type() {
+        $this->connect();        
+    }
 }
