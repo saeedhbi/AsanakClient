@@ -1,4 +1,5 @@
 <?php
+namespace AsanakClient;
 
 class AsanakClient
 {
@@ -9,6 +10,13 @@ class AsanakClient
 
     public $connect;
 
+    /**
+     * Set values to properties
+     *
+     * @param array $values            
+     *
+     * @return void
+     */
     public function __construct($values)
     {
         $this->connectiontype = $values['connectiontype'];
@@ -16,6 +24,11 @@ class AsanakClient
         $this->values = $values;
     }
 
+    /**
+     * Class to connect connection
+     *
+     * @return object
+     */
     public function connect()
     {
         $inject = ucfirst($this->connectiontype) . 'Connection';

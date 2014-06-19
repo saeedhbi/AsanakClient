@@ -96,8 +96,8 @@ class SoapConnectionSpec extends ObjectBehavior
             'maxReturnedMsg' => '5',
             'fromTime' => '1402932600000' */
         );
-        $method = 'getUserCredit';
+        /* $method = 'getUserCredit';
         $this->connect($values)->shouldBeObject();
-        $this->{$method}($values);
+        $this->{$method}($values); */
     }
 }

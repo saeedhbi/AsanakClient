@@ -1,18 +1,41 @@
 <?php
-use Exceptions\AsanakSOAPException;
+namespace AsanakClient;
 
-class SoapConnection
+use Exceptions\AsanakSOAPException;
+use ConnectionInterface;
+
+class SoapConnection implements ConnectionInterface
 {
 
+    /**
+     * Dataset overload data
+     *
+     * @var array
+     */
     private $datasets = array();
 
+    /**
+     * Connection property to return instance.
+     */
     private $connection;
 
+    /**
+     * Set values to properties
+     *
+     * @param array $values            
+     *
+     * @return void
+     */
     public function __construct($values)
     {
         $this->datasets = $values;
     }
 
+    /**
+     * Class to connect connection
+     *
+     * @return object
+     */
     public function connect($connect)
     {
         if (empty($this->connection)) {
@@ -32,6 +55,11 @@ class SoapConnection
         return $this->connection;
     }
 
+    /**
+     * Class to send values to provider
+     *
+     * @return object
+     */
     public function sendSms()
     {
         try {
@@ -51,6 +79,11 @@ class SoapConnection
         }
     }
 
+    /**
+     * Class to getReportByMsgId from provider
+     *
+     * @return object
+     */
     public function getReportByMsgId()
     {
         try {
@@ -67,35 +100,45 @@ class SoapConnection
         }
     }
 
-    public function getReceivedMsg($values)
+    /**
+     * Class to getReceivedMsg from provider
+     *
+     * @return object
+     */
+    public function getReceivedMsg()
     {
         try {
             $s = $this->connection->getReceivedMsg(array(
                 'userCredential' => array(
-                    'username' => $values['username'],
-                    'password' => $values['password']
+                    'username' => $this->datasets['username'],
+                    'password' => $this->datasets['password']
                 ),
-                'wsdl' => $values['wsdl'],
-                'srcAddresses' => $values['srcAddresses'],
-                'destAddresses' => $values['destAddresses'],
-                'maxReturnedMsg' => $values['maxReturnedMsg'],
-                'fromTime' => $values['fromTime']
+                'wsdl' => $this->datasets['wsdl'],
+                'srcAddresses' => $this->datasets['srcAddresses'],
+                'destAddresses' => $this->datasets['destAddresses'],
+                'maxReturnedMsg' => $this->datasets['maxReturnedMsg'],
+                'fromTime' => $this->datasets['fromTime']
             ));
             return $s;
         } catch (SoapFault $e) {
             throw new AsanakSOAPException($e->faultstring, 401);
         }
     }
-    
-    public function getUserCredit($values)
+
+    /**
+     * Class to getUserCredit from provider
+     *
+     * @return object
+     */
+    public function getUserCredit()
     {
         try {
             $s = $this->connection->getUserCredit(array(
                 'userCredential' => array(
-                    'username' => $values['username'],
-                    'password' => $values['password']
+                    'username' => $this->datasets['username'],
+                    'password' => $this->datasets['password']
                 ),
-                'wsdl' => $values['wsdl']
+                'wsdl' => $this->datasets['wsdl']
             ));
             return $s;
         } catch (SoapFault $e) {
