@@ -13,7 +13,7 @@ class AsanakClientSpec extends ObjectBehavior
     }
     
     function let(){    
-        $values = array('connectiontype'=>'soap');    
+        $values = array('connectiontype'=>'curl');    
         $this->beConstructedWith($values);
     }
     
