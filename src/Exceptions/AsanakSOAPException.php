@@ -1,6 +1,3 @@
-<?php
-namespace Exceptions;
+<?php namespace AsanakClient\Exceptions;
 
-class AsanakSOAPException extends \Exception
-{
-}
+class AsanakSOAPException extends \Exception {}
