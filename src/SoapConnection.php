@@ -80,6 +80,20 @@ class SoapConnection implements ConnectionInterface
     }
 
     /**
+     * Send request to specified provider
+     *
+     * @param string $method            
+     * @return mixed
+     */
+    public function request($method)
+    {
+        if (method_exists($this, $method)) {
+            return $this->{$method}();
+        } else
+            throw new AsanakSOAPException('Method is not exist.');
+    }
+
+    /**
      * Class to getReportByMsgId from provider
      *
      * @return object

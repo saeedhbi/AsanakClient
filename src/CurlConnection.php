@@ -21,6 +21,20 @@ class CurlConnection implements ConnectionInterface
     }
 
     /**
+     * Send request to specified provider
+     *
+     * @param string $method            
+     * @return mixed
+     */
+    public function request($method)
+    {
+        if (method_exists($this, $method)) {
+            return $this->{$method}();
+        } else
+            throw new AsanakSOAPException('Method is not exist.');
+    }
+
+    /**
      * Create array from string http post/get parameter
      *
      * @param array $array            

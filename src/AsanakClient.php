@@ -31,7 +31,11 @@ class AsanakClient
      */
     public function connect()
     {
-        $inject = ucfirst($this->connectiontype) . 'Connection';
-        $connect = new $inject($this->values);
+        if ($this->connect) {
+            $inject = ucfirst($this->connectiontype) . 'Connection';
+            $this->connect = new $inject($this->values);
+        }
+        
+        return $this->connect;
     }
 }
