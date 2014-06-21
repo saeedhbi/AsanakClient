@@ -20,10 +20,7 @@
 	},
 	"autoload" : {
 		"psr-4" : {
-			"AsanakClient\\" : ""
-		},
-		"psr-0" : {
-			"" : "src"
+			"AsanakClient\\" : "src"
 		}
 	},
 	"require-dev" : {
