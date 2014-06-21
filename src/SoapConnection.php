@@ -36,7 +36,7 @@ class SoapConnection implements ConnectionInterface
      *
      * @return object
      */
-    public function connect($connect)
+    public function connect()
     {
         if (empty($this->connection)) {
             try {
@@ -47,7 +47,7 @@ class SoapConnection implements ConnectionInterface
                     'connection_timeout' => 120,
                     'cache_wsdl' => WSDL_CACHE_BOTH
                 );
-                $this->connection = new SoapClient($connect['wsdl'], $params);
+                $this->connection = new SoapClient($this->datasets['wsdl'], $params);
             } catch (SoapFault $e) {
                 throw new AsanakSOAPException($e->faultstring, 401);
             }
@@ -63,7 +63,7 @@ class SoapConnection implements ConnectionInterface
     public function sendSms()
     {
         try {
-            $s = $this->connection->sendSms(array(
+            $s = $this->connect()->sendSms(array(
                 'userCredential' => array(
                     'username' => $this->datasets['username'],
                     'password' => $this->datasets['password']
@@ -87,7 +87,7 @@ class SoapConnection implements ConnectionInterface
     public function getReportByMsgId()
     {
         try {
-            $s = $this->connection->getReportByMsgId(array(
+            $s = $this->connect()->getReportByMsgId(array(
                 'userCredential' => array(
                     'username' => $this->datasets['username'],
                     'password' => $this->datasets['password']
@@ -108,7 +108,7 @@ class SoapConnection implements ConnectionInterface
     public function getReceivedMsg()
     {
         try {
-            $s = $this->connection->getReceivedMsg(array(
+            $s = $this->connect()->getReceivedMsg(array(
                 'userCredential' => array(
                     'username' => $this->datasets['username'],
                     'password' => $this->datasets['password']
@@ -133,7 +133,7 @@ class SoapConnection implements ConnectionInterface
     public function getUserCredit()
     {
         try {
-            $s = $this->connection->getUserCredit(array(
+            $s = $this->connect()->getUserCredit(array(
                 'userCredential' => array(
                     'username' => $this->datasets['username'],
                     'password' => $this->datasets['password']
