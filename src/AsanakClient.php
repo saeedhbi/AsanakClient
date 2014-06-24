@@ -11,7 +11,7 @@ class AsanakClient
     public $connect;
 
     /**
-     * Set values to properties
+     * Set values to properties 
      *
      * @param array $values            
      *
