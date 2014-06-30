@@ -9,7 +9,7 @@ class CurlConnectionSpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType('CurlConnection');
+        $this->shouldHaveType('CurlClient');
     }
 
     function it_should_send_params_to_provider()

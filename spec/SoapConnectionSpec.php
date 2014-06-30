@@ -9,7 +9,7 @@ class SoapConnectionSpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType('SoapConnection');
+        $this->shouldHaveType('SoapClient');
     }
 
     function let()
@@ -43,7 +43,7 @@ class SoapConnectionSpec extends ObjectBehavior
             'msgBody' => $messgae,
             'msgEncoding' => $Encoding
         );
-       /*  $this->shouldThrow('Exceptions\AsanakSOAPException')->during('connect', array(
+       /*  $this->shouldThrow('Exceptions\AsanakSoapException')->during('connect', array(
             $values
         )); */
     }

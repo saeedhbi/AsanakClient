@@ -1,6 +1,6 @@
 {
 	"name" : "opilo/asanakclient",
-	"description" : "Php Asanak Client",
+	"description" : "Php Asanak ClientManager",
 	"keywords" : [
 		"sms",
 		"provider",
@@ -8,11 +8,17 @@
 	],
 	"type" : "library",
 	"license" : "MIT",
-	"authors" : [{
+	"authors" : [
+        {
 			"name" : "Saeed Habibi",
 			"email" : "saeeditce.habibi@gmail.com",
 			"homepage" : "http://www.saeedhabibi.com"
-		}
+		},
+        {
+            "name" : "Behzad Shabani",
+            "email" : "behzad.shabani@gmail.com",
+            "homepage" : "http://behzad.shabani.me"
+        }
 	],
 	"require" : {
 		"php" : ">=5.3.0",
@@ -24,7 +30,7 @@
 		}
 	},
 	"require-dev" : {
-		"phpspec/phpspec" : "2.0.*@dev"
+		"phpspec/phpspec" : "2.1.*@dev"
 	},
 	"config" : {
 		"bin-dir" : "bin"
