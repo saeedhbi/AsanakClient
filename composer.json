@@ -1,6 +1,6 @@
 {
 	"name" : "opilo/asanakclient",
-	"description" : "Php Asanak Client",
+	"description" : "Php Asanak ClientManager",
 	"keywords" : [
 		"sms",
 		"provider",

@@ -9,7 +9,7 @@ class AsanakClientSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
-        $this->shouldHaveType('AsanakClient');
+        $this->shouldHaveType('ClientManager');
     }
     
     function let(){    

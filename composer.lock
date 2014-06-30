@@ -4,20 +4,20 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2d9aa4014712f6b37a52918d37a7678f",
+    "hash": "371b54d1d6e23013ec97b99cb657ad79",
     "packages": [
         {
             "name": "curl/curl",
-            "version": "1.1.3",
+            "version": "1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-mod/curl.git",
-                "reference": "e51c182f79d1433ff725bcdbf0eae041a32bf7cd"
+                "reference": "45410738dbede9a4caca2fb50446e557f1e7a7af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-mod/curl/zipball/e51c182f79d1433ff725bcdbf0eae041a32bf7cd",
-                "reference": "e51c182f79d1433ff725bcdbf0eae041a32bf7cd",
+                "url": "https://api.github.com/repos/php-mod/curl/zipball/45410738dbede9a4caca2fb50446e557f1e7a7af",
+                "reference": "45410738dbede9a4caca2fb50446e557f1e7a7af",
                 "shasum": ""
             },
             "require": {
@@ -57,7 +57,7 @@
                 "curl",
                 "dot"
             ],
-            "time": "2014-05-19 09:27:02"
+            "time": "2014-06-22 18:15:27"
         }
     ],
     "packages-dev": [
@@ -97,16 +97,16 @@
         },
         {
             "name": "phpspec/phpspec",
-            "version": "dev-master",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/phpspec.git",
-                "reference": "5f3b795d37488439fc08ca6c7b33ec8fb28f643d"
+                "reference": "4e2a03397e551316ac2a29189d4d925b30a7d373"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/5f3b795d37488439fc08ca6c7b33ec8fb28f643d",
-                "reference": "5f3b795d37488439fc08ca6c7b33ec8fb28f643d",
+                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/4e2a03397e551316ac2a29189d4d925b30a7d373",
+                "reference": "4e2a03397e551316ac2a29189d4d925b30a7d373",
                 "shasum": ""
             },
             "require": {
@@ -132,7 +132,8 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-develop": "2.1.x-dev",
+                    "dev-master": "2.1.x-dev"
                 }
             },
             "autoload": {
@@ -166,7 +167,7 @@
                 "testing",
                 "tests"
             ],
-            "time": "2014-03-19 14:23:26"
+            "time": "2014-06-26 14:27:25"
         },
         {
             "name": "phpspec/prophecy",

@@ -1,4 +1,4 @@
 AsanakClient
 ============
 
-PHP Asanak Provider Client
+PHP Asanak Provider ClientManager
