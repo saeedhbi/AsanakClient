@@ -17,12 +17,12 @@ class SoapConnectionSpec extends ObjectBehavior
         $messgae = 'Asanak Test';
         $Encoding = (mb_detect_encoding($messgae) == 'ASCII') ? "1" : "8";
         $values = array(
-            'username' => 'opilo',
-            'password' => 'opilo@7800',
+            'username' => 'user',
+            'password' => 'pass',
             'wsdl' => 'http://ws.asanak.ir:8082/services/CompositeSmsGateway?wsdl',
             'connectionType' => 'soap',
-            'srcAddresses' => '9821021000',
-            'destAddresses' => '09354328595',
+            'srcAddresses' => '982100000',
+            'destAddresses' => '093500000000',
             'msgBody' => $messgae,
             'msgEncoding' => $Encoding
         );
@@ -34,12 +34,12 @@ class SoapConnectionSpec extends ObjectBehavior
         $messgae = 'Asanak Test';
         $Encoding = (mb_detect_encoding($messgae) == 'ASCII') ? "1" : "8";
         $values = array(
-            'username' => 'opilo',
-            'password' => 'opilo@7800',
+            'username' => 'user',
+            'password' => 'pass',
             'wsdl' => 'http1://ws.asanak.ir:8082/services/CompositeSmsGateway?wsdl',
             'connectionType' => 'soap',
-            'srcAddresses' => '9821021000',
-            'destAddresses' => '09354328595',
+            'srcAddresses' => '982100000',
+            'destAddresses' => '093500000000',
             'msgBody' => $messgae,
             'msgEncoding' => $Encoding
         );
@@ -53,12 +53,12 @@ class SoapConnectionSpec extends ObjectBehavior
         $messgae = 'Asanak Test';
         $Encoding = (mb_detect_encoding($messgae) == 'ASCII') ? "1" : "8";
         $values = array(
-            'username' => 'opilo',
-            'password' => 'opilo@7800',
+            'username' => 'user',
+            'password' => 'pass',
             'wsdl' => 'http://ws.asanak.ir:8082/services/CompositeSmsGateway?wsdl',
             'connectionType' => 'soap',
-            'srcAddresses' => '9821021000',
-            'destAddresses' => '09354328595',
+            'srcAddresses' => '982100000',
+            'destAddresses' => '093500000000',
             'msgBody' => $messgae,
             'msgEncoding' => $Encoding
         );
@@ -70,12 +70,12 @@ class SoapConnectionSpec extends ObjectBehavior
         $messgae = 'Asanak Test';
         $Encoding = (mb_detect_encoding($messgae) == 'ASCII') ? "1" : "8";
         $values = array(
-            'username' => 'opilo',
-            'password' => 'opilo@7800',
+            'username' => 'user',
+            'password' => 'pass',
             'wsdl' => 'http://ws.asanak.ir:8082/services/CompositeSmsGateway?wsdl',
             'connectionType' => 'soap',
-            'srcAddresses' => '9821021000',
-            'destAddresses' => '09354328595',
+            'srcAddresses' => '982100000',
+            'destAddresses' => '093500000000',
             'msgBody' => $messgae,
             'msgEncoding' => $Encoding
         );
@@ -87,12 +87,12 @@ class SoapConnectionSpec extends ObjectBehavior
         $messgae = 'Asanak Test';
         $Encoding = (mb_detect_encoding($messgae) == 'ASCII') ? "1" : "8";
         $values = array(
-            'username' => 'opilo',
-            'password' => 'opilo@7800',
+            'username' => 'user',
+            'password' => 'pass',
             'wsdl' => 'http://ws.asanak.ir:8082/services/CompositeSmsGateway?wsdl',
             'connectionType' => 'soap',
-/*             'srcAddresses' => '9821021000',
-            'destAddresses' => '09354328595',
+/*             'srcAddresses' => '982100000',
+            'destAddresses' => '093500000000',
             'maxReturnedMsg' => '5',
             'fromTime' => '1402932600000' */
         );
