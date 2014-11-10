@@ -18,10 +18,10 @@ class CurlConnectionSpec extends ObjectBehavior
         $Encoding = (mb_detect_encoding($messgae) == 'ASCII') ? "1" : "8";
         $values = array(
             'username' => array(
-                'opilo'
+                'user'
             ),
             'password' => array(
-                'opilo@7800'
+                'pass'
             ),
             'wsdl' => array(
                 'http://ws.asanak.ir:8082/services/CompositeSmsGateway?wsdl'
@@ -30,11 +30,11 @@ class CurlConnectionSpec extends ObjectBehavior
                 'curl'
             ),
             'srcAddresses' => array(
-                '9821021000',
+                '9821000000',
                 '123'
             ),
             'destAddresses' => array(
-                '09354328595'
+                '093500000000'
             ),
             'msgBody' => array(
                 $messgae
